@@ -1,0 +1,66 @@
+<div>
+    <div class="submit-form">
+      @if (!submitted) {
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="tutorial.name"
+          name="name"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="tutorial.email"
+          name="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="tutorial.password"
+          name="password"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input
+          class="form-control"
+          id="login"
+          required
+          [(ngModel)]="tutorial.login"
+          name="login"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+        <input
+          class="form-control"
+          id="role"
+          required
+          [(ngModel)]="tutorial.role"
+          name="role"
+        />
+      </div>
+  
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      } @else {
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      }
+    </div>
+  </div>

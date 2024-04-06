@@ -1,0 +1,104 @@
+@if (viewMode){
+    @if (currentTutorial.id){
+    <h4>Tutorial</h4>
+    <div>
+      <label><strong>Name:</strong></label> {{ currentTutorial.name }}
+    </div>
+    <div>
+      <label><strong>Email:</strong></label>
+      {{ currentTutorial.email }}
+    </div>
+   
+      <div>
+        <label><strong>Role:</strong></label>
+        {{ currentTutorial.role }}
+      </div>
+    
+  
+    <a class="badge badge-warning" routerLink="/tutorials/{{ currentTutorial.id }}">
+      Edit
+    </a>
+    } @else {<p>Please click on a Name...</p>}
+  } @else {
+    @if (currentTutorial.id) {
+    <div class="edit-form">
+      <h4>Tutorial</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentTutorial.name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)]="currentTutorial.email"
+            name="email"
+          />
+        </div>
+  
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="text"
+              class="form-control"
+              id="password"
+              [(ngModel)]="currentTutorial.password"
+              name="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="login">Login</label>
+            <input
+              type="text"
+              class="form-control"
+              id="login"
+              [(ngModel)]="currentTutorial.login"
+              name="login"
+            />
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input
+              type="text"
+              class="form-control"
+              id="role"
+              [(ngModel)]="currentTutorial.role"
+              name="role"
+            />
+          </div>
+      </form>
+  
+      @if (true) {
+      <button class="badge badge-primary mr-2"
+        (click)="updatePublished(false)" >
+        UnPublish
+      </button>
+      } @else {
+      <button class="badge badge-primary mr-2" (click)="updatePublished(true)">
+        Publish
+      </button>
+      }
+  
+      <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()">
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    } @else {<p>Cannot access this Tutorial...</p>}
+  }
